@@ -82,7 +82,6 @@ jobs:
           Write-Host "Building test project..."
           dotnet build $testProjectPath -c $Env:CFG --no-restore
           
-          # Определяем Target Framework (должен быть net9.0)
           $tfm = (dotnet list $testProjectPath framework --framework net9.0 | Select-Object -Last 1).Trim()
           if (-not $tfm) { $tfm = "net9.0" }
           
